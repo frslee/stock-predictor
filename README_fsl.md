@@ -12,10 +12,10 @@ is robust to outliers and missing data.
 
 Setup and implementation of `model.py` locally, followed by AWS deployment and ability to make predictions 
 interactively via the public IPv4 address of the associated EC2 instance and `FastAPI` are described in detail 
-in the accompanying `README_MLE-9.md` file.  
+in the original MLE-9 course repo `README_MLE9.md` file for this week's assignment.  
 
 Note that one can trigger and view predictions from the AWS-deployed model via its public IPv4 address from a 
-local machine terminal using the `curl` command, as documented in `README_MLE-9.md`, for example: 
+local machine terminal using the `curl` command, as documented in `README_MLE9.md`; for example: 
 
 ```
 curl \
