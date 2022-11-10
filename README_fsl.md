@@ -81,12 +81,15 @@ ___Ans:___
 While ARIMA family models make predictions based on a weighted linear sum of recent past observations, ___exponential smoothing___ is a type of univariate time-series forecasting that uses a weighted sum of past observations in which the ___weights decrease exponentially.___ This approach results in predictions that are based more heavily on recent data values. Thus, exponential smoothing performs well in making shorter-term forecasts, specifically in scenarios where the time-scale of changes in a series' parameters exceeds that of the targeted forecast period.  
   
     
- ___3. What is stationarity? What is seasonality? Why is stionarity important in time series forecasting?___  
+ ___3. What is stationarity? What is seasonality? Why is stationarity important in time series forecasting?___  
  ___Ans:___ _Please see above answer to Question §1b._  
    
      
        
- ___4. How is seasonality different from cyclicality? Fillin the blanks: ... is predictable, whereas ... is not.___  
+ ___4. How is seasonality different from cyclicality? Fill in the blanks:  '.....' is predictable, whereas '.....' is not.___  
  ___Ans:___  
    
- 
+ *  ___Seasonality___ _(in time series)_ refers to a ___predictable___ change that occurs regularly based on a particular season, generally in a one-year period. _Example: Retail sales often exhibit seasonality in being highest during the Q4 of the calendar year._  
+ *  ___Cyclicality___ _(in time series), by contrast_ refers to an ___unpredictable change that exhibits irregular periodicity and variable duration over time.___ Cyclical phenomena can be shorter than a calendar year in duration, but are often much longer.   
+ *  _NB: Seasonality and cyclicality can occur concurrently, for example, when an aperiodic, large trend varying over years and of indeterminate duration, also exhibits regular, superimposed smaller bumps (or dips) that are seasonal (predictable) within any given year of the larger, cyclical trend._  
+ *  ___In sum, seasonality is predictable, whereas cyclicality is not!___
