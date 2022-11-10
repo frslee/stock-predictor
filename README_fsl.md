@@ -71,6 +71,22 @@ ___c. By contrast, LSTMs___ (a more general version of GRUs) are _sequence model
 Based on the above, we can make several observations regarding Prophet, ARIMA, & LSTM models specifically for time series (e.g., stock price forecasting):    
 *  The recurrent-neural-network-(RNN)-based ___LSTM___ is the most general of the three, and can be applied to modeling any sequence type. As a deep-learning architecture encoding sequence information and long-range dependencies, given sufficient data, time for hyperparameter tuning and training, and computational power, it will generate the best results. If, however, training data is more limited, an LSTM will perform the poorest due to model complexity >> input data → _overfitting._  
 *  ___Prophet___, given its simplicity, is easy & fast to implement, requires less hyperparameter tuning (and data pre-processing), and performs well specifically in _business time series_ which exhibit a combination of _general, overall trend(s)_ and _temporal patterns on different time scales._  
-*  ___ARIMA___—also much simpler than LSTMs—can outperform the latter on smaller datasets, but require significant effort and domain expertise to set its hyperparameters $p, q, d$ optimally.
-*  
-*  
+*  ___ARIMA___—also much simpler than LSTMs—can outperform the latter on smaller datasets, but require significant effort and domain expertise to set its hyperparameters $p, q, d$ optimally.  
+
+  
+  
+___2. What is exponential smoothing and why is it used in Time Series Forecasting?___  
+___Ans:___  
+  
+While ARIMA family models make predictions based on a weighted linear sum of recent past observations, ___exponential smoothing___ is a type of univariate time-series forecasting that uses a weighted sum of past observations in which the ___weights decrease exponentially.___ This approach results in predictions that are based more heavily on recent data values. Thus, exponential smoothing performs well in making shorter-term forecasts, specifically in scenarios where the time-scale of changes in a series' parameters exceeds that of the targeted forecast period.  
+  
+    
+ ___3. What is stationarity? What is seasonality? Why is stionarity important in time series forecasting?___  
+ ___Ans:___ _Please see above answer to Question §1b._  
+   
+     
+       
+ ___4. How is seasonality different from cyclicality? Fillin the blanks: ... is predictable, whereas ... is not.___  
+ ___Ans:___  
+   
+ 
