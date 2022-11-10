@@ -54,8 +54,7 @@ where:
 * $h(t)$ = holiday trend  
 * $\epsilon_t$ = random fluctuations (assumed to follow a normal distribution with μ = 0 and unknown variance $\sigma^2$)
 
-_By contrast,_ ___LSTMs___ are _sequence models_ based on _RNNs,_ in which the output $\hat{y}^{<t>}$ at time $t$ depends on the current sequence input, $x^{\<t\>}$ as well as the activation $a^{\<t-1\>}$ resulting from all preceding sequential inputs $x^{\<0\>}...x^{\<t-1\>}$, which are:  
-*  Modified by the addition of 3 gates that enable capturing long-term dependencies in the input sequence.  
+_By contrast,_ ___LSTMs___ are _sequence models_ based on _RNNs,_ in which traditionally, the output $\hat{y}^{(t)}$ at time $t$ depends on the current sequence input, $x^{(t)}$ as well as the activation $a^{(t-1)}$ resulting from all preceding sequential inputs $x^{(0)}...x^{(t-1)}$. LSTMs incorporate, in addition, 3 gates at each time point that enable capturing long-term dependencies in the input sequence.  
 	
 
 
