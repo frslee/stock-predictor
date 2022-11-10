@@ -70,7 +70,7 @@ ___c. By contrast, LSTMs___ (a more general version of GRUs) are _sequence model
 
 Based on the above, we can make several observations regarding Prophet, ARIMA, & LSTM models specifically for time series (e.g., stock price forecasting):    
 *  The recurrent-neural-network-(RNN)-based ___LSTM___ is the most general of the three, and can be applied to modeling any sequence type. As a deep-learning architecture encoding sequence information and long-range dependencies, given sufficient data, time for hyperparameter tuning and training, and computational power, it will generate the best results. If, however, training data is more limited, an LSTM will perform the poorest due to model complexity >> input data → _overfitting._  
-*  ___Prophet___, given its simplicity, is easy & fast to implement, requires less hyperparameter tuning (and data pre-processing), and performs well specifically in _business time series_ with a combination of _general trends_ and _temporal patterns on different time scales._  
-*  ___ARIMA___--also much simpler than LSTMs--can outperform the latter on smaller datasets but require significant effort and domain expertise to set its hyperparameters $p, q, d$ optimally.
+*  ___Prophet___, given its simplicity, is easy & fast to implement, requires less hyperparameter tuning (and data pre-processing), and performs well specifically in _business time series_ which exhibit a combination of _general, overall trend(s)_ and _temporal patterns on different time scales._  
+*  ___ARIMA___—also much simpler than LSTMs—can outperform the latter on smaller datasets, but require significant effort and domain expertise to set its hyperparameters $p, q, d$ optimally.
 *  
 *  
