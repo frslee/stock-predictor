@@ -89,7 +89,7 @@ While ARIMA family models make predictions based on a weighted linear sum of rec
  ___4. How is seasonality different from cyclicality? Fill in the blanks:  '.....' is predictable, whereas '.....' is not.___  
  ___Ans:___  
    
- *  ___Seasonality___ _(in time series)_ refers to a ___predictable___ change that occurs regularly based on a particular season, generally in a one-year period. _Example: Retail sales often exhibit seasonality in being highest during the Q4 of the calendar year._  
- *  ___Cyclicality___ _(in time series), by contrast_ refers to an ___unpredictable change that exhibits irregular periodicity and variable duration over time.___ Cyclical phenomena can be shorter than a calendar year in duration, but are often much longer.   
- *  _NB: Seasonality and cyclicality can occur concurrently, for example, when an aperiodic, large trend varying over years and of indeterminate duration, also exhibits regular, superimposed smaller bumps (or dips) that are seasonal (predictable) within any given year of the larger, cyclical trend._  
+ *  ___Seasonality___ _(in time series)_ refers to a ___predictable___ change that occurs regularly based on a particular season, generally within a one-year period. _Example: Retail sales often exhibit seasonality in being highest during Q4 of the calendar year._  
+ *  ___Cyclicality___ _(in time series), by contrast,_ refers to an ___unpredictable change that exhibits irregular periodicity and variable duration over time.___ Cyclical phenomena can be shorter in duration than a calendar year, but are often much longer.   
+ *  _NB: Seasonality and cyclicality can occur together, for example, when an aperiodic, larger trend varying over years (and of indeterminate duration), also exhibits regular, superimposed smaller bumps (or dips) that are seasonal (predictable) within any given year of the larger, cyclical trend._  
  *  ___In sum, seasonality is predictable, whereas cyclicality is not!___
