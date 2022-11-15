@@ -1,3 +1,85 @@
+# ___Week 13: Build Container Image for FastAPI Stock Prophet___  
+  
+```
+Docker version:     20.10.20 bld 9fdeb9c (installed on Windows)
+Host OS:            Windows 10 x64, WSL 2 with Ubuntu 22.04
+.dockerignore:      file not required since .pem key pair stored outside
+                        project directory root (per Sina)
+conda env:          'stock-predictor' (Python 3.8, as per MLE-9 README.md)
+```
+
+## A. Overview  
+### _i. A `Dockerfile` was created in project root, specifying:_
+* `Python 3.8`
+* `python3-dev, apt-utils, python-dev, build-essential`
+* `pip, cython, numpy, pystan`
+* `prophet`
+* `fastapi, joblib, pandas, uvicorn, yfinance`
+* contents of `src/ .`
+    * `main.py`
+    * `model.py`
+    * `AAPL.joblib, GOOG.joblib, MSFT.joblib`
+* `CMD` to run `uvicorn` server  
+  
+### _ii. The above `Dockerfile` was used to build a __Docker image__ via:_  
+```
+docker build -t stock-prophet
+```  
+
+### _iii. A __Docker container__ was then started using the above Docker image via:_  
+```
+docker run -d --rm --name stock-prophet-container -p 8000:8000 stock-prophet
+```
+
+### _iv. Finally, the stock-predictor app was used to __get predictions__ e.g.,:_  
+```
+curl --header "Content-Type: application/json --request POST \
+     --data '{"ticker":"MSFT","days":7}' http://localhost:8000/predict  
+```  
+
+## B. Answers to Rubric Questions:  
+---  
+
+___1. What does it mean to create a Docker image and why do we use Docker images?___  
+___Ans:___
+* When creating a __Docker image__--in this week's exercise, using a plain-text __Dockerfile__--we assemble together the collection of files (installations, application code, dependencies, etc.) that are required to configure a fully operational __container__ environment (see below). A Dockerfile specifies the steps required to create and run a Docker image, with each of its instructions defining a __layer in a hierarchy of layers__ in the image. In turn, a __Docker image__ _(read only),_ when run, becomes an _instance_ of a __container__, which is _live, executable content that users can interact with._
+  
+* We use __Docker images__ as read-only templates that define __containers,__ which conveniently contain everything an application needs to run. As such, they can be deployed and instantiated quickly, relatively inexpensively (notably as a fast, lightweight, and cost-effective alternative to hypervisor-based virtual machines), at any scale, and most importantly, ___reliably in any environment with confidence that the application code will run.___    
+
+___2. What is the difference between a Container and a Virtual Machine?___  
+___Ans:___   
+
+* As mentioned above, __containers__ are fast, lightweight, and cost-effective alternatives to hypervisor-based virtual machines (VMs). In contrast to VMs, which each contain full _guest & host OS's_ running on virtual hardware created and allocated by a __hypervisor__ _(Type I)_ (so-called ___hardware-level virtualization,___ enabling _isolation of VMs_), __containers__ represent ___os-level virtualization___ and permit _isolation of processes._ In other words, instead of abstracting hardware, containers abstract the OS.   
+  
+* Docker containers run on a single physical server, _sharing the host OS amongst them._  
+  
+* Because Docker containers are _self-contained,_ and package up an application together with all necessary libraries, dependencies, etc., they can be easily deployed as a single entity and are highly hardware-compatible and readily maintained--in short they exhibit __highly portability.__  
+  
+* _NB: Since Docker containers are lightweight and don't virtualize hardware, one can run a docker container in a VM!_  
+  
+___3. What are 5 examples of container orchestration tools?___    
+___Ans:___  
+* __Orchestrators__ are tools used to manage, scale, and maintain containerized applications. Five examples are:  
+    *  __Kubernetes:__ Enables horizontal scaling of a web app from e.g. a single server to several 'nodes,' enabling for example, _load balancing._    
+      
+    *  __Docker Swarm:__ Converts multiple docker instances into a single virtual host, enabling orchestrating clusters of Docker engines.  
+      
+    *  __Amazon Elastic Container Service (ECS):__ An AWS container service enabling secure, highly scalable Docker container orchestration.  
+      
+    *  __Amazon EKS:__ Provides a fully managed orchestration tool for Kubernets clusters on AWS.  
+      
+    *  __Azure Kubernetes Service:__ Similar to Amazon EKS, AKS provides a fully managed Kubernetes service on Microsoft Azure.  
+      
+___4. How does a Docker image differ from a Docker container?___  
+___Ans:___  
+In short, a __Docker image__ _(read only),_ when run, becomes an _instance_ of a __Docker container__, which is _live, executable content that users can interact with (see above answer to §Question 1 for further details)._  
+  
+
+---  
+  
+
+
+
 # ___Week 12: Stock-predictor___  
 
 ```
@@ -39,6 +121,8 @@ curl \
   
 
 ## C. Answers to Rubric Questions:  
+---  
+
 
 ___1. How does the Prophet Algorithm differ from an LSTM? Why does an LSTM have poor performance against ARIMA and Prophet for time series?___  
 
